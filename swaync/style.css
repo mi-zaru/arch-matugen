@@ -1,0 +1,362 @@
+@import "colors.css";
+
+* {
+	all: unset;
+
+	font-family: "Adwaita Sans", "JetBrainsMono Nerd Font Propo";
+	font-weight: 700;
+
+	/* Global style variables */
+	--border-radius: 16px;
+	--border-radius-s: 8px;
+	--border-radius-xl: 18px;
+
+	/* Shadows */
+	--shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ========== Notifications ========== */
+
+.notification {
+	padding: 5px;
+}
+
+.notification-background {
+	background: alpha(@surface, 0.7);
+	border-radius: 12px;
+	margin: 15px 15px 8px 8px;
+	padding: 0;
+	border-radius: 10px;
+}
+
+.notification-background .close-button {
+	margin: 8px;
+	padding: 4px;
+	border-radius: 8px;
+	background: transparent;
+	color: @on_surface_variant;
+}
+
+.notification-background .close-button:hover {
+	background: alpha(@surface_container_highest, 0.8);
+	color: @on_surface;
+}
+
+.notification.critical {
+	border: 2px solid @error;
+	border-radius: var(--border-radius);
+}
+
+.notification-content {
+	color: @on_surface;
+	margin: 12px;
+	font-weight: 700;
+}
+
+.notification-content .text-box {
+	margin: -4px 0 0 6px;
+}
+
+.notification-content .time {
+	padding: 2px;
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: @on_surface_variant;
+}
+
+.notification-content .summary {
+	font-size: 1.05rem;
+	font-weight: 800;
+	padding: 2px 0;
+	margin-bottom: 2px;
+	color: @on_surface;
+}
+
+.notification-content .body {
+	color: @on_surface_variant;
+	font-size: 0.85rem;
+}
+
+/* Inline reply */
+.notification-row .inline-reply-entry,
+.notification-row .inline-reply-button {
+	margin: 6px -4px -4px -4px;
+	padding: 10px 14px;
+	border-radius: var(--border-radius);
+	background: @surface_container;
+}
+
+.notification-row .inline-reply-entry {
+	margin-right: 10px;
+}
+
+.notification-row .inline-reply-button:hover {
+	background: alpha(@primary, 0.25);
+	color: @primary;
+}
+
+/* Actions */
+.notification-alt-actions {
+	padding: 6px 0;
+}
+
+.notification-action {
+	font-weight: 700;
+	border-radius: var(--border-radius);
+	background: @surface_container_high;
+	color: @on_surface;
+	margin: 0 4px;
+	padding: 10px 0;
+}
+
+.notification-action:hover,
+.notification-action:active {
+	background: alpha(@primary, 0.3);
+	color: @primary;
+}
+
+/* ========== Control Center ========== */
+
+.control-center {
+	background: alpha(@surface, 0.5);
+	border-radius: 10px;
+	margin: 14px 14px 8px 8px;
+	padding: 8px 8px 4px 8px;
+	border: 1px solid alpha(@outline_variant, 0.5);
+	box-shadow: var(--shadow);
+}
+
+.control-center .notification-background {
+	background: @surface_container_high;
+	margin-left: 0px;
+	margin-right: 0px;
+	box-shadow: none;
+	border: none;
+}
+
+/* Hide close buttons in control center */
+.control-center .notification-background .close-button,
+.notification-group-close-button {
+	opacity: 0;
+}
+
+.notification-group {
+	transition: 200ms;
+}
+
+.notification-group:not(.collapsed) {
+	margin: 8px;
+}
+
+.notification-group-headers,
+.notification-group-buttons {
+	color: @on_surface;
+	font-weight: bold;
+	background: @surface_container;
+	border-radius: var(--border-radius);
+	padding: 5px 5px;
+}
+
+.notification-group-headers > label {
+	margin: 0 4px;
+	font-size: 1rem;
+}
+
+.notification-group-icon {
+	color: @on_surface;
+}
+
+.notification-group-buttons .image-button {
+	background: transparent;
+	color: @on_surface;
+	padding: 4px;
+	border-radius: var(--border-radius);
+}
+
+.notification-group-buttons .image-button:hover {
+	background: alpha(@primary, 0.2);
+	color: @primary;
+}
+
+/* ========== Widgets ========== */
+
+.widget {
+	margin: 5px;
+	color: @on_surface;
+}
+
+/* MPRIS */
+.widget-mpris-album-art {
+	border-radius: 10px;
+	margin: 6px 4px;
+}
+
+.widget-mpris-title {
+	font-weight: 700;
+	font-size: 1.15rem;
+	margin: 0 4px;
+	color: @on_surface;
+}
+
+.widget-mpris-subtitle {
+	color: @on_surface_variant;
+	font-weight: 600;
+	font-size: 0.9rem;
+	margin: 0 4px;
+}
+
+.mpris-background {
+	border-radius: 10px;
+	margin: 8px;;
+}
+
+.widget-mpris {
+	background-color: alpha(@primary, 0.1);
+	border-radius: 10px;
+	box-shadow: var(--shadow);
+}
+
+.mpris-overlay {
+	border-radius: 10px;
+	padding: 10px;
+	margin-left: 2px;
+	background-color: transparent;
+}
+
+.mpris-overlay > box:last-child {
+	border-radius: var(--border-radius-xl);
+	padding: 0 6px;
+	background: alpha(@surface_container_highest, 0.7);
+}
+
+.widget-mpris-player button {
+	padding: 6px;
+	margin: 0 3px;
+	border-radius: 14px;
+}
+
+.widget-mpris-player button:hover {
+	background-color: alpha(@primary, 0.25);
+	color: @primary;
+}
+
+/* Do Not Disturb */
+.widget-dnd {
+	padding: 12px 16px;
+	border-radius: 10px;
+	background: alpha(@primary, 0.1);
+	box-shadow: var(--shadow);
+	color: @on_surface;
+}
+
+.widget-dnd > label {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.widget-dnd switch {
+	background: @surface_container_highest;
+	border-radius: 12px;
+	box-shadow: none;
+	padding: 3px;
+	transition: 200ms;
+}
+
+.widget-dnd switch slider {
+	background: @on_surface;
+	border-radius: var(--border-radius-s);
+}
+
+.widget-dnd switch:checked {
+	background: alpha(@primary, 0.4);
+}
+
+.widget-dnd switch:checked slider {
+	background: @primary;
+}
+
+/* Buttons grid */
+.widget-buttons-grid {
+	border-radius: var(--border-radius);
+	padding: 6px 12px;
+	margin-bottom: 6px;
+	background: @surface_container;
+	box-shadow: var(--shadow);
+}
+
+.widget-buttons-grid button {
+	padding: 10px;
+	margin: 4px;
+	min-width: 2.2rem;
+	background: @surface_container_high;
+	border-radius: var(--border-radius);
+	transition: 200ms;
+}
+
+.widget-buttons-grid button > label {
+	font-family: "CaskaydiaCove Nerd Font Propo";
+	font-size: 16px;
+	color: @on_surface;
+}
+
+.widget-buttons-grid button:hover {
+	background: alpha(@primary, 0.3);
+	color: @primary;
+}
+
+.widget-buttons-grid button:checked {
+	background-color: @primary;
+}
+
+.widget-buttons-grid button:checked > label {
+	color: @on_primary;
+}
+
+/* Volume & Backlight */
+.widget-volume,
+.widget-backlight {
+	padding: 10px 16px;
+	margin: 6px 0;
+	border-radius: 14px;
+	color: @on_surface;
+	font-weight: 800;
+	background: @surface_container;
+}
+
+.widget-volume label,
+.widget-backlight label {
+	font-size: 1.1rem;
+}
+
+.widget-volume slider,
+.widget-backlight slider {
+	border-radius: 24px;
+	margin: -8px;
+	background: @primary;
+	box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 3px 6px rgba(0, 0, 0, 0.3);
+	opacity: 1;
+}
+
+.widget-volume trough,
+.widget-backlight trough {
+	background: @surface_container_highest;
+	margin-left: 10px;
+	border-radius: 12px;
+}
+
+.widget-volume highlight,
+.widget-backlight highlight {
+	padding: 3.5px;
+	border-radius: 12px;
+	background: @primary;
+}
+
+/* Placeholder */
+.control-center-list-placeholder {
+	color: @on_surface_variant;
+}
+
+/* Avoid background issues */
+.blank-window {
+	background: transparent;
+}

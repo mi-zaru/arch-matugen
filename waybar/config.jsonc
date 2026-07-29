@@ -1,0 +1,135 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "width": 1100,
+    "margin-left": 50,
+    "margin-right": 50,
+    "margin-top": 7,
+    "fixed-center": true,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "clock",
+        "custom/weather",
+        "pulseaudio",
+        "custom/notification",
+        "custom/power"
+    ],
+
+
+
+
+
+    "custom/menu": {
+        "format": "{}",
+        "tooltip": true,
+        "tooltip-format": "App Launcher",
+        "on-click": "./.config/rofi/launcher.sh"
+    },
+    "custom/weather": {
+        "class": "weather",
+        "exec": "curl -s 'wttr.in/Dhaka?format=%t' | sed 's/+//'",
+        "format": "{}",
+        "interval": 300
+    },
+    "clock": {
+        "interval": 60,
+        "tooltip": true,
+        "format": "{:%I:%M %p}",
+        "tooltip-format": "{:%d-%m-%Y}"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5"
+        },
+        "persistent-workspaces": {
+            "*": 5, // 5 workspaces by default on every monitor
+            "HDMI-A-1": 5 // but only three on HDMI-A-1
+        }
+    },
+    "pulseaudio": {
+        "format": " {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                " ",
+                " "
+            ]
+        },
+        "tooltip": false,
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='13pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "mpris": {
+        "format": "  {title} - {artist}",
+        "format-paused": "  {title} - {artist}",
+        "title-len": 15,
+        "tooltip": false,
+        "ignored-players": [
+            "firefox"
+        ]
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout"
+    },
+    "custom/separator": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "format": "󰣆 {title}",
+        "max-length": 40,
+        "separate-outputs": false,
+        "rewrite": {
+            "^.*( — LibreWolf|LibreWolf)$": "󰈹 LibreWolf",
+            "(.*) — Mozilla Firefox": " Firefox",
+            "^.*v( .*|$)": " Neovim",
+            "^.*~$": "󰄛 Kitty",
+            "(.*) ": " Empty",
+            "^.*pdf( .*|$)": "",
+            "^.*(- Mousepad)$" :" $1"
+        }
+    }
+}

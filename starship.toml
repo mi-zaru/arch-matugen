@@ -1,0 +1,49 @@
+add_newline = false
+format = """\
+  $directory\
+  $git_branch$git_commit$git_state $git_status\
+  $character
+"""
+
+palette = 'colors'
+
+[palettes.colors]
+mustard = '#af8700' # example
+color1 = '#8bd0ef'
+color2 = '#003546'
+color3 = '#c0c8cd'
+color4 = '#1b2023'
+color5 = '#003546'
+color6 = '#0f1417'
+color7 = '#0f1417'
+color8 = '#8bd0ef'
+color9 = '#c6c2ea'
+
+# Prompt symbols 
+[character]
+success_symbol = "[>](color8 bold)"
+error_symbol = "[>](#FFB4AB)"
+vicmd_symbol = "[>](#f9e2af)"
+
+[directory]
+format = "[$path](fg:color8)"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $branch](fg:color3 bg:color4)[](fg:color4) "
+
+[time]
+format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $time](fg:color3 bg:color4)[](fg:color4) "
+disabled = false
+time_format = "%R" # Hour:Minute Format
+
+[python]
+format = "[](fg:color8 bg:color4)[${symbol}${version}](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5)( ${virtualenv})](fg:color3 bg:color4)[](fg:color4) "
+symbol = '🐍'
+# pyenv_version_name = true
+pyenv_prefix = 'venv'

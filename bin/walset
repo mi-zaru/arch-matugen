@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+WALL_DIR="$HOME/Pictures/Wallpapers"
+
+cd "$WALL_DIR" || exit 1
+
+IFS=$'\n'
+
+SELECTED_WALL=$(
+    for a in *.jpg *.jpeg *.png *.webp *.gif; do
+        [ -e "$a" ] || continue
+        printf "%s\0icon\x1f%s\n" "$a" "$a"
+    done | rofi -dmenu -i -show-icons -theme ~/.config/rofi/wallpaper.rasi -p ""
+)
+
+[ -n "$SELECTED_WALL" ] && ~/.local/bin/walset-backend "$WALL_DIR/$SELECTED_WALL"

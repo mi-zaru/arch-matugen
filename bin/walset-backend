@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Check if the user provided an argument
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path_to_image>"
+    exit 1
+fi
+
+IMAGE="$1"
+
+# Set wallpaper with nice transition
+awww img "$IMAGE" --transition-type any --transition-step 255 --transition-fps 75
+
+# === MATUGEN + COLOR CHANGE ===
+matugen image "$IMAGE" --source-color-index 0
+ln -sf "$IMAGE" /home/mizaru/.cache/current-wallpaper
+
+# Refresh everything (keep these)
+pkill waybar
+waybar >/dev/null 2>&1 &
+
+pkill swaync
+swaync >/dev/null 2>&1 &
+
+# Optional: if you want to refresh SwayWM (usually not needed with Waybar)
+# swaymsg reload || true
+
+notify-send "Theme Applied" "Wallpaper + Matugen colors updated successfully!"

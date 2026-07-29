@@ -1,0 +1,85 @@
+@import "colors.css";
+
+* {
+  all: unset;
+  font: bold 14px "JetBrainsMono Nerd Font Propo";
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background: rgba( 0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+/* Active window title */
+#window {
+  padding: 0 10px;
+  margin: 5px 3px;
+  background: alpha(@primary, 0.2);
+  border-radius: 6px;
+  color: @on_surface;
+}
+
+/* Tooltip */
+tooltip {
+  background: alpha(@surface_container, 0.95);
+  border: 1px solid alpha(@outline_variant, 0.6);
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: @on_surface;
+}
+
+/* Workspaces */
+#workspaces {
+  margin: 5px 3px 5px 5px;
+  background: alpha(@primary, 0.07);
+  border-radius: 6px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: alpha(@on_surface, 0.35);
+  transition: all 0.25s ease;
+}
+
+#workspaces button.active {
+  color: @primary;
+  border-radius: 5px;
+}
+
+#workspaces button:hover {
+  color: @on_surface;
+  background: alpha(@on_primary_containerest,150.5);
+  border-radius: 5px;
+}
+
+#workspaces button.urgent {
+  color: @error;
+}
+
+/* Modules */
+#clock,
+#pulseaudio,
+#custom-weather,
+#custom-notification,
+#custom-menu,
+#custom-power {
+  padding: 0 10px;
+  margin: 5px 3px;
+  background: alpha(@primary, 0.2);
+  border-radius: 6px;
+  color: @on_surface;
+  transition: all 0.25s ease;
+}
+
+#custom-menu {
+  margin-left: 5px;
+}
+#custom-power {
+  margin-right: 5px;
+}

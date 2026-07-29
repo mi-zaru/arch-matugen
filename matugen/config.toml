@@ -1,0 +1,104 @@
+[config]
+enable = true
+reload_apps = true
+set_wallpaper = false
+prefix = "@"
+scheme = "scheme_tonal_spot"
+
+[templates.kitty]
+input_path  = "/home/mizaru/.config/matugen/templates/kitty-colors.conf"
+output_path = "/home/mizaru/.config/kitty/colors.conf"
+post_hook = 'kill -SIGUSR1 $(pgrep kitty)'
+
+[templates.waybar]
+input_path  = "/home/mizaru/.config/matugen/templates/waybar-colors.css"
+output_path = "/home/mizaru/.config/waybar/colors.css"
+
+[templates.rofi]
+input_path  = "/home/mizaru/.config/matugen/templates/rofi-colors.rasi"
+output_path = "/home/mizaru/.config/rofi/colors.rasi"
+
+[templates.hyprland]
+input_path  = "/home/mizaru/.config/matugen/templates/hyprland-colors.lua"
+output_path = "/home/mizaru/.config/hypr/colors.lua"
+
+[templates.hyprlock]
+input_path  = "/home/mizaru/.config/matugen/templates/hyprlock-colors.conf"
+output_path = "/home/mizaru/.config/hypr/colors.conf"
+
+[templates.swaync]
+input_path  = "/home/mizaru/.config/matugen/templates/swaync-colors.css"
+output_path = "/home/mizaru/.config/swaync/colors.css"
+post_hook = "swaync-client -rs"
+
+[templates.vesktop]
+input_path = "/home/mizaru/.config/matugen/templates/vesktop-colors.css"
+output_path = "/home/mizaru/.config/vesktop/themes/midnight-discord.css"
+
+[templates.cava]
+input_path = "/home/mizaru/.config/matugen/templates/cava-colors.ini"
+output_path = "/home/mizaru/.config/cava/config"
+post_hook = "pkill -USR1 cava || true"
+
+[templates.gtk3]
+input_path = "/home/mizaru/.config/matugen/templates/gtk-colors.css"
+output_path = "/home/mizaru/.config/gtk-3.0/colors.css"
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = "/home/mizaru/.config/matugen/templates/gtk-colors.css"
+output_path = "/home/mizaru/.config/gtk-4.0/colors.css"
+post_hook = "/home/mizaru/.config/matugen/post-hook-scripts/gtk-themes-reload.sh"
+
+[templates.pywalfox]
+input_path = "/home/mizaru/.config/matugen/templates/pywalfox-colors.json"
+output_path = "/home/mizaru/.cache/wal/colors.json"
+post_hook = 'pywalfox update'
+
+[templates.yazi]
+input_path = "/home/mizaru/.config/matugen/templates/yazi-theme.toml"
+output_path = "/home/mizaru/.config/yazi/theme.toml"
+
+[templates.starship]
+input_path = "/home/mizaru/.config/matugen/templates/starship-colors.toml"
+output_path = "/home/mizaru/.config/starship.toml"
+
+[templates.nvim]
+input_path = '/home/mizaru/.local/share/wallsync/matugen.lua'
+output_path = '/home/mizaru/.cache/wal/base46-dark.lua'
+
+[templates.nvimlight]
+input_path = '/home/mizaru/.local/share/wallsync/matugen.lua'
+output_path = '/home/mizaru/.cache/wal/base46-light.lua'
+
+[templates.pywal]
+input_path = '/home/mizaru/.local/share/wallsync/waltemplate'
+output_path = '/home/mizaru/.cache/wal/colors'
+
+[config.custom_colors.red]
+color = "#FF0000"
+blend = true
+
+[config.custom_colors.green]
+color = "#00FF00"
+blend = true
+
+[config.custom_colors.yellow]
+color = "#FFFF00"
+blend = true
+
+[config.custom_colors.blue]
+color = "#0000FF"
+blend = true
+
+[config.custom_colors.magenta]
+color = "#FF00FF"
+blend = true
+
+[config.custom_colors.cyan]
+color = "#00FFFF"
+blend = true
+
+[config.custom_colors.white]
+color = "#ffffff"
+blend = true

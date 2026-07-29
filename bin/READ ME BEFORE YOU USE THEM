@@ -1,0 +1,8 @@
+THIS IS THEM MOST IMPORTANT PART FOR THEMING
+
+1. Put the whole bin folder at ~/.local
+2. Make those 3 folder executable by,
+   chmod +x walset (you need cd to the ~/.local/bin and after use this cmd)
+   chmod +x walset-backend
+   chmod +x walset-random
+3. And you are good to go (Also make sure to execute all the other .sh files or the files that contains "#!/bin/bash" line) 
